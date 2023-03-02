@@ -1,0 +1,26 @@
+{
+	"manifest_version": 3,
+	"name": "LinkedIn AutoConnect",
+	"description": "Click's connect buttons automatically on LinkedIn search people page",
+	"version": "1.0",
+	"action": {
+		"default_popup": "./popup/popup.html",
+		"default_icon": {
+			"16": "./images/linkedin16.png",
+			"128": "./images/linkedin128.png"
+		}
+	},
+	"icons": {
+		"16": "./images/linkedin16.png",
+		"128": "./images/linkedin128.png"
+	},
+
+	"permissions": ["scripting", "storage", "tabs"],
+	"host_permissions": ["https://*.linkedin.com/search/results/people/*"],
+	"content_scripts": [
+		{
+			"matches": ["https://*.linkedin.com/search/results/people/*"],
+			"js": ["./scripts/content.js"]
+		}
+	]
+}
